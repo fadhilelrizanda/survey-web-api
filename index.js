@@ -7,6 +7,7 @@ const surveyAsuh = require("./routes/asuhRoute");
 const personalQuest = require("./routes/personalQuest");
 const answerCollect = require("./routes/answerRoute");
 const question = require("./routes/questionRoute");
+const users = require("./routes/userRoute");
 
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString, {
@@ -40,6 +41,7 @@ app.use("/surveyasuh", surveyAsuh);
 app.use("/personalQuest", personalQuest);
 app.use("/answer", answerCollect);
 app.use("/question", question);
+app.use("/users", users);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

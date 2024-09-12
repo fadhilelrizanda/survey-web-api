@@ -36,6 +36,40 @@ const personalQuestSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const userSchema = new mongoose.Schema(
+  {
+    uniqueId: {
+      required: true,
+      type: String,
+    },
+    name: {
+      required: true,
+      type: String,
+    },
+    currentDate: {
+      required: true,
+      type: Date,
+    },
+    childname: {
+      required: true,
+      type: Number,
+    },
+    childDate: {
+      required: true,
+      type: Date,
+    },
+    age: {
+      required: true,
+      type: Number,
+    },
+    gender: {
+      required: true,
+      type: Number,
+    },
+  },
+  { timestamps: true }
+);
+
 const surveyPeriksaSchema = new mongoose.Schema(
   {
     question: {
@@ -122,6 +156,7 @@ const periksaModel = mongoose.model("Survey Periksa ", surveyPeriksaSchema);
 const SikatModel = mongoose.model("Survey Menyikat", surveySikatSchema);
 const AnswerModel = mongoose.model("Answer", answerSchema);
 const questionModel = mongoose.model("Question", questionSurveySchema);
+const userModel = mongoose.model("User", userSchema);
 
 const personalQuestModel = mongoose.model(
   "Personal Question",
@@ -135,4 +170,5 @@ module.exports = {
   personalQuestModel,
   AnswerModel,
   questionModel,
+  userModel,
 };
