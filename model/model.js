@@ -156,7 +156,7 @@ const periksaModel = mongoose.model("Survey Periksa ", surveyPeriksaSchema);
 const SikatModel = mongoose.model("Survey Menyikat", surveySikatSchema);
 const AnswerModel = mongoose.model("Answer", answerSchema);
 const questionModel = mongoose.model("Question", questionSurveySchema);
-const userModel = mongoose.model("User", userSchema);
+const userModel = mongoose.model("UserWeb", userSchema);
 
 const personalQuestModel = mongoose.model(
   "Personal Question",
