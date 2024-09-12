@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema(
     },
     currentDate: {
       required: true,
-      type: Date,
+      type: String,
     },
     childname: {
       required: true,
@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema(
     },
     childDate: {
       required: true,
-      type: Date,
+      type: String,
     },
     age: {
       required: true,
