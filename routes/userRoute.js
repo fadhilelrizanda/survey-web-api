@@ -10,9 +10,13 @@ router.get("/", (req, res) => {
 // Post Method
 router.post("/post", async (req, res) => {
   const data = new userModel({
-    question: req.body.question,
-    questionType: req.body.questionType,
-    surveyType: req.body.surveyType,
+    uniqueId: req.body.uniqueId,
+    name: req.body.name,
+    currentDate: req.body.currentDate,
+    childname: req.body.childname,
+    childDate: req.body.childDate,
+    age: req.body.age,
+    gender: req.body.gender,
   });
 
   try {
