@@ -66,6 +66,18 @@ const userSchema = new mongoose.Schema(
       required: true,
       type: Number,
     },
+    surveyA: {
+      type: Boolean,
+      default: false,
+    },
+    surveyB: {
+      type: Boolean,
+      default: false,
+    },
+    surveyC: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
@@ -146,6 +158,11 @@ const answerSchema = new mongoose.Schema(
     surveyType: {
       required: true,
       type: Number,
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
   },
   { timestamps: true }
