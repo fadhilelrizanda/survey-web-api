@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema(
     },
     childname: {
       required: true,
-      type: Number,
+      type: String,
     },
     childDate: {
       required: true,
