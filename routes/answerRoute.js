@@ -17,6 +17,7 @@ router.post("/post", async (req, res) => {
     ans: req.body.ans,
     score: req.body.score,
     surveyType: req.body.surveyType,
+    userId: req.body.userId,
   });
 
   try {
