@@ -160,7 +160,7 @@ const answerSchema = new mongoose.Schema(
       type: Number,
     },
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: "User",
       required: true,
     },
