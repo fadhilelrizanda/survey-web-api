@@ -77,6 +77,84 @@ router.patch("/update/:id", async (req, res) => {
   }
 });
 
+// Update surveyA state by ID Method
+router.patch("/updateSurveyA/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { surveyA } = req.body; // Expect surveyA in request body
+
+    if (surveyA === undefined) {
+      return res.status(400).json({ message: "surveyA field is required." });
+    }
+
+    const result = await userModel.findByIdAndUpdate(
+      id,
+      { surveyA },
+      { new: true }
+    );
+
+    if (result) {
+      res.send(result);
+    } else {
+      res.status(404).json({ message: "No document found to update." });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Update surveyA state by ID Method
+router.patch("/updateSurveyB/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { surveyB } = req.body; // Expect surveyA in request body
+
+    if (surveyB === undefined) {
+      return res.status(400).json({ message: "surveyA field is required." });
+    }
+
+    const result = await userModel.findByIdAndUpdate(
+      id,
+      { surveyB },
+      { new: true }
+    );
+
+    if (result) {
+      res.send(result);
+    } else {
+      res.status(404).json({ message: "No document found to update." });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Update surveyA state by ID Method
+router.patch("/updateSurveyC/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { surveyC } = req.body; // Expect surveyA in request body
+
+    if (surveyC === undefined) {
+      return res.status(400).json({ message: "surveyA field is required." });
+    }
+
+    const result = await userModel.findByIdAndUpdate(
+      id,
+      { surveyC },
+      { new: true }
+    );
+
+    if (result) {
+      res.send(result);
+    } else {
+      res.status(404).json({ message: "No document found to update." });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 // Update latest document
 router.patch("/updateLatest", async (req, res) => {
   try {
