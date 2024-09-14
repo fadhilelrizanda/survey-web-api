@@ -13,7 +13,7 @@ router.post("/post", async (req, res) => {
   console.log("Request Body:", req.body);
 
   const data = new AnswerModel({
-    pq: req.body.pq,
+    // pq: req.body.pq,
     ans: req.body.ans,
     score: req.body.score,
     surveyType: req.body.surveyType,

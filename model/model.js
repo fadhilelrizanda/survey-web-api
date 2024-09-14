@@ -142,11 +142,11 @@ const questionSurveySchema = new mongoose.Schema(
 
 const answerSchema = new mongoose.Schema(
   {
-    pq: {
-      required: true,
-      type: Map,
-      of: String,
-    },
+    // pq: {
+    //   required: true,
+    //   type: Map,
+    //   of: String,
+    // },
     ans: {
       required: true,
       type: [Number],
