@@ -132,6 +132,10 @@ const questionSurveySchema = new mongoose.Schema(
       required: true,
       type: Number,
     },
+    score: {
+      required: true,
+      type: Number,
+    },
     surveyType: {
       required: true,
       type: Number,
