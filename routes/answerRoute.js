@@ -65,7 +65,11 @@ router.get("/getAllAns", async (req, res) => {
         return {
           ...answer.toObject(),
           user: user
-            ? { uniqueId: user.uniqueId, name: user.name, gender: user.gender }
+            ? {
+                uniqueId: user.uniqueId,
+                name: user.name,
+                childname: user.childname,
+              }
             : null,
         };
       })
