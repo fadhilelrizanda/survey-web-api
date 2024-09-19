@@ -9,7 +9,6 @@ router.get("/", (req, res) => {
 
 // Post Method
 router.post("/post", async (req, res) => {
-  console.log("POST /surveyasuh/post");
   console.log("Request Body:", req.body);
 
   const data = new AnswerModel({
