@@ -29,6 +29,16 @@ router.post("/post", async (req, res) => {
   }
 });
 
+// Get all Method
+router.get("/getAll", async (req, res) => {
+  try {
+    const data = await userModel.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 router.get("/getLatest", async (req, res) => {
   try {
     const data = await userModel.find().sort({ _id: -1 }).limit(1);
