@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { AnswerModel } = require("../model/model");
+const { AnswerModel, userModel } = require("../model/model");
 
 router.get("/", (req, res) => {
   console.log("GET /surveyasuh");
@@ -55,12 +55,23 @@ router.get("/getAllAns", async (req, res) => {
   const { surveyType } = req.query;
 
   try {
-    // Find answers based on surveyType, and populate user details
-    const data = await AnswerModel.find({ surveyType: Number(surveyType) })
-      .populate("userId", "uniqueId name gender") // Ensure "userId" is treated as a string reference to UserWeb
-      .exec();
+    // Find answers based on surveyType
+    const answers = await AnswerModel.find({ surveyType: Number(surveyType) });
 
-    res.json(data);
+    // Manually populate user details by matching uniqueId
+    const populatedAnswers = await Promise.all(
+      answers.map(async (answer) => {
+        const user = await userModel.findOne({ uniqueId: answer.userId }); // Find user by uniqueId
+        return {
+          ...answer.toObject(),
+          user: user
+            ? { uniqueId: user.uniqueId, name: user.name, gender: user.gender }
+            : null,
+        };
+      })
+    );
+
+    res.json(populatedAnswers);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
