@@ -159,7 +159,7 @@ const answerSchema = new mongoose.Schema(
       type: Number,
     },
     userId: {
-      type: mongoose.Schema.Types.ObjectId, // Ensure this is ObjectId
+      type: string, // Ensure this is ObjectId
       ref: "UserWeb", // Reference the UserWeb model
       required: true,
     },
