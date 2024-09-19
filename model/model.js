@@ -146,11 +146,6 @@ const questionSurveySchema = new mongoose.Schema(
 
 const answerSchema = new mongoose.Schema(
   {
-    // pq: {
-    //   required: true,
-    //   type: Map,
-    //   of: String,
-    // },
     ans: {
       required: true,
       type: [Number],
@@ -164,8 +159,8 @@ const answerSchema = new mongoose.Schema(
       type: Number,
     },
     userId: {
-      type: String,
-      ref: "User",
+      type: mongoose.Schema.Types.ObjectId, // Ensure this is ObjectId
+      ref: "UserWeb", // Reference the UserWeb model
       required: true,
     },
   },

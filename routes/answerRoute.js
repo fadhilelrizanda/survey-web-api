@@ -51,6 +51,21 @@ router.get("/getAll", async (req, res) => {
   }
 });
 
+router.get("/getAllAns", async (req, res) => {
+  const { surveyType } = req.query;
+
+  try {
+    // Filter answers based on surveyType and populate the related user details
+    const data = await AnswerModel.find({ surveyType: Number(surveyType) })
+      .populate("userId", "uniqueId name gender") // Populate user details from UserWeb
+      .exec();
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Get by ID Method
 router.get("/getOne/:id", async (req, res) => {
   try {
