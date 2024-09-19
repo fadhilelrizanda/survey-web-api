@@ -55,9 +55,9 @@ router.get("/getAllAns", async (req, res) => {
   const { surveyType } = req.query;
 
   try {
-    // Filter answers based on surveyType and populate the related user details
+    // Find answers based on surveyType, and populate user details
     const data = await AnswerModel.find({ surveyType: Number(surveyType) })
-      .populate("userId", "uniqueId name gender") // Populate user details from UserWeb
+      .populate("userId", "uniqueId name gender") // Ensure "userId" is treated as a string reference to UserWeb
       .exec();
 
     res.json(data);
